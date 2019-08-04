@@ -1,0 +1,59 @@
+{
+  "button" : [
+    {
+      "name" : "桃花运",
+      "sub_button" : [
+        {
+          "name" : "日运签",
+          "type" : "view",
+          "url" : "https://www.jd.com/"
+        },
+        {
+          "name" : "今日桃花运",
+          "type" : "view",
+          "url" : "https://www.jd.com/"
+        },
+        {
+          "name" : "桃桃小铺",
+          "type" : "view",
+          "url" : "https://www.jd.com/"
+        }
+      ]
+    },
+    {
+      "key" : "TEST_BUTTON",
+      "name" : "新版测试大全",
+      "type" : "click"
+    },
+    {
+      "name" : "深度测算",
+      "sub_button" : [
+        {
+          "name" : "AI看面相",
+          "type" : "view",
+          "url" : "https://www.taobao.com/"
+        },
+        {
+          "name" : "姓名九宫详解",
+          "type" : "view",
+          "url" : "https://www.taobao.com/"
+        },
+        {
+          "name" : "真名天子",
+          "type" : "view",
+          "url" : "https://www.taobao.com/"
+        },
+        {
+          "name" : "2019下半年运势",
+          "type" : "view",
+          "url" : "https://www.taobao.com/"
+        },
+        {
+          "name" : "八字精批",
+          "type" : "view",
+          "url" : "https://www.taobao.com/"
+        }
+      ]
+    }
+  ]
+}
