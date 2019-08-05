@@ -1,17 +1,31 @@
 package cn.zzq.wx.common.exception;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import cn.zzq.wx.common.enumeration.ErrCodeEnum;
+import lombok.Getter;
 
 /*
 *   异常类
 * */
-@EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
 public class ErrCodeException extends RuntimeException {
-    //异常编号
-    private String errCode;
-    //异常信息
-    private String errMsg;
-    //todo: 有问题，待确认
+    private int errorCode;
+    private final String errorMsg;
+
+    public ErrCodeException(ErrCodeEnum errorCode) {
+        this(errorCode.getCode(), errorCode.getMessage());
+    }
+
+    public ErrCodeException(ErrCodeEnum errorCode, String errorMsg) {
+        this(errorCode.getCode(), errorMsg);
+    }
+
+    public ErrCodeException(int errorCode, String errorMsg) {
+        super(errorMsg);
+        this.errorCode = errorCode;
+        this.errorMsg = errorMsg;
+    }
+
+    public ErrCodeException(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
 }

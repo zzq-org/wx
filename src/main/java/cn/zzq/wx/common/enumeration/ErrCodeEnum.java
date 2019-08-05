@@ -1,5 +1,6 @@
 package cn.zzq.wx.common.enumeration;
 
+import cn.zzq.wx.common.exception.ErrCodeException;
 import lombok.Getter;
 
 /**
@@ -7,18 +8,39 @@ import lombok.Getter;
  */
 @Getter
 public enum ErrCodeEnum {
-    SYS_ERR("1000","系统错误"),
-    PARAM_ERR("2000","参数错误"),
-    CODE_ERR("3000","代码错误"),
-    NET_ENUM("4000","网络错误");
+    /**
+     * 成功
+     */
+    OK(200, "成功"),
+    PARAM(400, "参数错误或业务异常"),
+    AUTH(401, "认证失败"),
+    FORBIDDEN(403, "访问拒绝"),
+    NOT_EXIST(404, "资源不存在"),
+    NOT_SUPPORT(405, "方法不支持"),
+    SYSTEM_ERROR(500, "系统内部错误");
 
-    private String code;
-    private String msg;
+    private Integer code;
+    private String message;
 
-    ErrCodeEnum(String code, String msg) {
+    ErrCodeEnum(Integer code, String message) {
         this.code = code;
-        this.msg = msg;
+        this.message = message;
     }
 
-    //todo: 有问题，待确认
+    public static ErrCodeEnum getErrorByCode(int code) {
+        ErrCodeEnum[] codes = values();
+        for (ErrCodeEnum ec : codes) {
+            if (ec.getCode() == code) {
+                return ec;
+            }
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        for (ErrCodeEnum ec : values()) {
+            System.out.println(ec.getCode() + "|" + ec.getMessage());
+        }
+        throw new ErrCodeException(ErrCodeEnum.PARAM,"啥降低阿萨德");
+    }
 }
